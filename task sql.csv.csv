@@ -1,0 +1,78 @@
+create table employee_details 
+EmployeeID serial,
+FirstName varchar(50),
+LastName varchar(50),	
+email varchar(100),
+PhoneNumber varchar(15),	
+HireDate date,
+Salary	decimal(10,2), 
+DepartmentID int,	
+IsActive boolean,
+JobTitle varchar(100)
+)
+
+
+
+
+insert into employee_details ("firstname","lastname","email","phonenumber","hiredate","salary","departmentid","isactive","jobtitle")values
+
+('riu','sham','riusham2@gmail.com','9874474728','2024-08-10',860000.00,1,'yes','data analytics'),
+('piu','ram','piuram@gamil.com','9421454883','2024-04-20',26000.00,2,'yes','freelancer'),
+('eiu','lil','eiulil@gmail.com','880033223','2024-02-23',44000.00,1,'yes','data analytics'),
+('tiu','hil','tiuhil@gmail.com','7685490651','2024-09-11',66000.00,1,'no','data analytics'),
+('anu','ili','anuili@gmail.com','8806548642','2024-06-22',76000.00,2,'yes','freelancer');
+
+select * from employee_details 
+
+UPDATE employee_details
+
+set departmentid = 0 where isactive = 'False'
+
+update employee_details
+
+set salary = salary + (salary*8/100)
+
+where isactive = 'False' and departmentid = 0 and jobtitle in('HR manager','Financial Analyst','Business Analyst','Data Analyst')
+
+
+
+select firstname as Name , lastname as Surname from employee_details
+
+where salary between 30000 and 50000;
+
+
+select * from employee_details where firstname LIKE 'A%' 
+
+
+Delete from employee_details
+
+where employeeid between 1 and 5
+
+
+ALTER TABLE EMPLOYEE_DETAILS
+
+rename to employee_database
+
+
+alter table employee_database
+
+rename column Firstname to Name 
+
+
+alter table employee_database
+
+rename column lastname to Surname
+
+
+
+alter table employee_database
+
+add column state varchar
+
+--QUE 10.2 									
+
+update employee_database set State = 'India' where IsActive = true;
+update employee_database set State = 'USA' where IsActive = false;
+
+alter table employee_database alter column "state" set not null;
+
